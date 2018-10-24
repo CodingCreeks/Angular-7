@@ -10,8 +10,9 @@ export class ContactComponent implements OnInit {
   messageForm: FormGroup;
   submitted = false;
   success = false;
-  constructor(private fb: FormBuilder) {
-    this.messageForm = this.fb.group({
+
+  constructor(private formBuilder: FormBuilder) {
+    this.messageForm = this.formBuilder.group({
       name: ['', Validators.required],
       message: ['', Validators.required]
     });
@@ -25,6 +26,7 @@ export class ContactComponent implements OnInit {
     if (this.messageForm.invalid) {
       return;
     }
+
     this.success = true;
   }
 }
